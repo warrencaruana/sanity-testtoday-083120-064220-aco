@@ -1,0 +1,76 @@
+backend:
+  name: github
+  repo: webriq/netlify-cms-blog-starter-template
+media_folder: static/assets
+public_folder: assets
+logo_url: https://res.cloudinary.com/dnla85pdq/image/upload/v1569561258/webriq/webriq-cms-logo.png
+publish_mode: editorial_workflow
+collections:
+  - name: blog
+    label: Blog
+    folder: src/markdown/posts
+    create: true
+    fields:
+      - { name: title, label: Title }
+      - { name: publishedDate, label: Published Date, widget: date }
+      - { name: excerpt, label: Excerpt, widget: text }
+      - { name: body, label: Body, widget: markdown }
+      - { name: metaTitle, label: Meta Title }
+      - { name: metaKeywords, label: Meta Keywords }
+      - { name: metaDescription, label: Meta Description, widget: text }
+      - { name: banner, label: Banner, widget: image }
+      - { name: status, label: Status }
+      - { name: description, label: Description, widget: text }
+      - {
+          label: Author,
+          name: author,
+          widget: relation,
+          collection: authors,
+          searchFields: [fullName, firstName, lastName],
+          valueField: fullName,
+        }
+      - {
+          label: Category,
+          name: category,
+          widget: relation,
+          collection: categories,
+          searchFields: [category],
+          valueField: category,
+          multiple: true,
+        }
+      - {
+          label: Tag,
+          name: tag,
+          widget: relation,
+          collection: tags,
+          searchFields: [tag],
+          valueField: tag,
+          multiple: true,
+        }
+  - name: authors
+    label: Authors
+    folder: src/markdown/authors
+    identifier_field: fullName
+    create: true
+    fields:
+      - { label: Layout, name: layout, widget: hidden, default: author }
+      - { label: Full Name, name: fullName, widget: string }
+      - { label: First Name, name: firstName, widget: string }
+      - { label: Last Name, name: lastName, widget: string }
+      - { label: Position, name: position, widget: string }
+      - { label: Profile Picture, name: profilePicture, widget: image }
+      - { label: Email, name: email, widget: string }
+  - name: categories
+    label: Categories
+    folder: src/markdown/categories
+    identifier_field: category
+    create: true
+    fields:
+      - { label: Category, name: category }
+  - name: tags
+    label: Tags
+    folder: src/markdown/tags
+    identifier_field: tag
+    create: true
+    fields:
+      - { label: Tag, name: tag }
