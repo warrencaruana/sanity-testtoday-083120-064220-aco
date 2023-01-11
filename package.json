@@ -20,7 +20,7 @@
     "gatsby-plugin-sitemap": "^2.2.24",
     "gatsby-source-filesystem": "^2.1.46",
     "gatsby-source-sanity": "^5.0.5",
-    "gatsby-transformer-remark": "^2.6.9",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^2.2.4",
     "marked": "^0.8.0",
     "node-sass": "^4.13.0",
